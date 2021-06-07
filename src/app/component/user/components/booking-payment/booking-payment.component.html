@@ -1,0 +1,56 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <div class="row">
+      Pay
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+
+      <div class="row">
+        <div class="card-body">
+          User: {{data?.name}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="card-body">
+          Email: {{data?.email}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="card-body">
+          Phone: {{data?.phoneNumber}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="card-body">
+          Total No. of Tickets: {{data?.totalTickets}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="card-body">
+          Total Cost: {{data?.totalCost}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="card-body">
+          Booked Date: {{data?.bookedDate | date: 'yyyy-MM-dd'}}
+        </div>
+      </div>
+    <form [formGroup]="bookForm">
+      <div class="row">
+          <label class="form-label">Payment Method:</label>
+          <select formControlName="paymentMethod" class="form-control">
+            <option *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod.id">
+              {{paymentMethod.name}}
+            </option>
+          </select>
+
+        </div>
+    </form>
+
+    <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary pull-right" (click)="onSubmit()" [disabled]="!bookForm.valid" >Pay
+        </button>
+      </div>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,37 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-6">
+        Available Ticket List
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div>
+      <table class="table table-bordered table-responsive-md table-hover">
+        <thead>
+        <tr>
+          <th>SN</th>
+          <th>Movie</th>
+          <th>Total Tickets</th>
+          <th>Available Tickets</th>
+          <th>Ticket Price</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of availableTickets; let i=index ">
+          <td>{{i + 1}}</td>
+          <td>{{data.movie_name}}</td>
+          <td>{{data.total_tickets}}</td>
+          <td>{{data.available_tickets}}</td>
+          <td>{{data.ticket_price}}</td>
+          <td>
+            <button class="btn btn-primary" routerLink="/user/book/{{data.id}}">Book</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </nb-card-body>
+</nb-card>

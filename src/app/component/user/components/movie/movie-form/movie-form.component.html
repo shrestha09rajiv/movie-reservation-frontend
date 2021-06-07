@@ -1,0 +1,76 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <div class="row">
+      Add Movie
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="movieForm">
+      <div class="row">
+        <div class="col mb-3">
+          <label for="movieName" class="form-label">Movie Name:</label>
+          <input type="text" class="form-control" formControlName="movieName">
+          <div *ngIf="formControls.movieName && (formControls.movieName.dirty || formControls.movieName.touched)"
+               id="movieName" class="alert-danger">
+            <div *ngIf="formControls.movieName.errors?.required">
+              Movie name is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Genre:</label>
+          <select formControlName="genre" class="form-control">
+            <option [disabled]="true" [selected]="true">Select Option</option>
+            <option *ngFor="let genre of getGenres(genres)" [value]="genre">
+              {{genre}}
+            </option>
+          </select>
+
+          </div>
+        </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Release Date:</label>
+          <input type="date" class="form-control" formControlName="releaseDate">
+          <div *ngIf="formControls.releaseDate && (formControls.releaseDate.dirty || formControls.releaseDate.touched)"
+               class="alert-danger">
+            <div *ngIf="formControls.releaseDate.errors?.required">
+              Release date is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Total Tickets:</label>
+          <input type="text" class="form-control" formControlName="totalTickets">
+          <div
+            *ngIf="formControls.totalTickets && (formControls.totalTickets.dirty || formControls.totalTickets.touched)"
+            class="alert-danger">
+            <div *ngIf="formControls.totalTickets.errors?.required">
+              Total ticket is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Ticket Price:</label>
+          <input type="text" class="form-control" formControlName="ticketPrice">
+          <div *ngIf="formControls.ticketPrice && (formControls.ticketPrice.dirty || formControls.ticketPrice.touched)"
+               class="alert-danger">
+            <div *ngIf="formControls.ticketPrice.errors?.required">
+              Ticket Price is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary pull-right" (click)="onSubmit()" [disabled]="!movieForm.valid">Submit
+        </button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,13 @@
+.login-box{
+  width: 550px;
+  padding: 20px;
+  background: #e8e8e8;
+  margin: 10rem auto auto;
+}
+.login-text{
+  text-align: center;
+}
+.login-btn{
+  margin-top: 20px;
+  padding: 8px;
+}

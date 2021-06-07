@@ -1,0 +1,78 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <div class="row">
+      Book Movie
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="bookForm">
+      <div class="row">
+        <div class="col mb-3">
+          <label for="name" class="form-label">User Name:</label>
+          <input type="text" class="form-control" formControlName="name">
+          <div *ngIf="formControls.name && (formControls.name.dirty || formControls.name.touched)"
+               id="name" class="alert-danger">
+            <div *ngIf="formControls.name.errors?.required">
+              Please Enter Your Name.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Email:</label>
+          <input type="text" class="form-control" formControlName="email">
+          <div *ngIf="formControls.name && (formControls.email.dirty || formControls.email.touched)"
+               id="email" class="alert-danger">
+            <div *ngIf="formControls.email.errors?.required">
+              Please Enter Email.
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Phone:</label>
+          <input type="number" class="form-control" formControlName="phoneNumber">
+          <div *ngIf="formControls.phoneNumber && (formControls.phoneNumber.dirty || formControls.phoneNumber.touched)"
+               id="phoneNumber" class="alert-danger">
+            <div *ngIf="formControls.phoneNumber.errors?.required">
+              Please Enter Phone Number.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Unit Cost</label>
+          <input type="text" class="form-control" formControlName="unitCost" readonly>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">No. of Tickets:</label>
+          <input type="text" class="form-control" formControlName="totalTickets" (keyup)="calculatePrice($event)">
+          <div *ngIf="formControls.totalTickets && (formControls.totalTickets.dirty || formControls.totalTickets.touched)" class="alert-danger">
+            <div *ngIf="formControls.totalTickets.errors?.required">
+              Please Enter No. Of Tickets To Book.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Total Cost:</label>
+          <input type="number" class="form-control" formControlName="totalCost" readonly>
+          <div *ngIf="formControls.totalCost && (formControls.totalCost.dirty || formControls.totalCost.touched)"
+               class="alert-danger">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary pull-right" (click)="onSubmit()" [disabled]="!bookForm.valid">Submit
+        </button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

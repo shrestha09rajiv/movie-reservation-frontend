@@ -1,0 +1,32 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-6">
+        Payment Methods
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary" (click)="addPaymentMethod()">
+          Add Payment Methods
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div>
+      <table class="table table-bordered table-responsive-md table-hover">
+        <thead>
+        <tr>
+          <th>SN</th>
+          <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let payment of payments; let i=index">
+          <td>{{i+1}}</td>
+          <td>{{payment.name}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </nb-card-body>
+</nb-card>

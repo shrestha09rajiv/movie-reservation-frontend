@@ -1,0 +1,14 @@
+
+.dashboard-icon{
+  background: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
+.icon{
+  font-size: 150px;
+}
+.dashboard-icon{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

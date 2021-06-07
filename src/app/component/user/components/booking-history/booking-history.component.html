@@ -1,0 +1,35 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-6">
+        Booking History
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div>
+      <table class="table table-bordered table-responsive-md table-hover">
+        <thead>
+        <tr>
+          <th>SN</th>
+          <th>Movie</th>
+          <th>Total Tickets</th>
+          <th>Total Cost</th>
+          <th>Booking Status</th>
+          <th>Booked Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of bookings; let i=index ">
+          <td>{{i + 1}}</td>
+          <td>{{data.movieName}}</td>
+          <td>{{data.totalTickets}}</td>
+          <td>{{data.totalCost}}</td>
+          <td>{{data.bookingStatus}}</td>
+          <td>{{data.bookedDate | date: 'yyyy-MM-dd'}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </nb-card-body>
+</nb-card>

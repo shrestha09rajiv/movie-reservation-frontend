@@ -1,0 +1,27 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <div class="row">
+      Add Payment Method
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="paymentForm">
+      <div class="row">
+        <div class="col mb-3">
+          <label for="movieName" class="form-label">Payment Method Name:</label>
+          <input type="text" class="form-control" formControlName="name">
+          <div *ngIf="formControls.name && (formControls.name.dirty || formControls.name.touched)"
+               id="movieName" class="alert-danger">
+            <div *ngIf="formControls.name.errors?.required">
+              Name is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary pull-right" (click)="onSubmit()" [disabled]="!paymentForm.valid">Submit
+        </button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
